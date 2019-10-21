@@ -45,6 +45,9 @@ def index():
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
     
+    aid_counts = df.groupby('aid_related').count()['message']
+    aid_names = ['not_related','related']
+    print(type(aid_counts))
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
     graphs = [
@@ -63,6 +66,23 @@ def index():
                 },
                 'xaxis': {
                     'title': "Genre"
+                }
+            }
+        },
+        {
+            'data':[
+                Bar(
+                    x=aid_names,
+                    y=aid_counts
+                )
+            ],
+            'layout':{
+                'title':'Distribution of Message Aid Related',
+                'yaxis':{
+                    'title':'Count'
+                },
+                'xaxis':{
+                    'title':'Aid Related'
                 }
             }
         }
@@ -85,7 +105,7 @@ def go():
     # use model to predict classification for query
     classification_labels = model.predict([query])[0]
     classification_results = dict(zip(df.columns[4:], classification_labels))
-
+    
     # This will render the go.html Please see that file. 
     return render_template(
         'go.html',
