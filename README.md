@@ -15,7 +15,7 @@
 
 
 
-<img src="https://img2018.cnblogs.com/blog/1821356/201910/1821356-20191021205555739-243361377.png" alt="screenshots" style="zoom:33%;" />
+![screenshots](https://img2018.cnblogs.com/blog/1821356/201910/1821356-20191021205555739-243361377.png)
 
 # Libraries
 
